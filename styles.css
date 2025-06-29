@@ -1,0 +1,338 @@
+:root {
+  --color1: hsl(0, 0%, 100%);
+  --color2: rgb(58, 58, 58);
+  --color3: #0891b2;
+
+  --h1-font-size: 2.5rem;
+
+  --hero-padding: 60px;
+  --hero-paragraph-font-size: 1.5rem;
+
+  --section-margin-bottom: 250px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+section {
+  margin-bottom: var(--section-margin-bottom);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+.hero::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: skew(0, -12deg);
+  transform-origin: top left;
+  position: absolute;
+  background-color: var(--color3);
+}
+
+.hero-wrapper {
+  padding: var(--hero-padding);
+  display: flex;
+  align-items: center;
+}
+
+.hero .hero-image {
+  flex: 1.5;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+  width: 700px;
+  height: 700px;
+  max-width: 700px;
+  max-height: 700px;
+  background: url(./images/image-1.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.hero .hero-image p {
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  font-size: 3em;
+  text-align: center;
+  width: 100%;
+  color: var(--color1);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-wrapper hgroup {
+  flex: 1.9;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  min-height: 600px;
+  color: var(--color2);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 30px 62px 30px 40px;
+  background-color: var(--color1);
+}
+
+.hero-wrapper hgroup p {
+  font-size: var(--hero-paragraph-font-size);
+}
+
+.hero-wrapper hgroup .icons {
+  margin-top: auto;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.hero-wrapper hgroup .profile {
+  display: none;
+}
+
+.hero-wrapper hgroup img {
+  display: none;
+}
+
+.hero-wrapper hgroup .profile p {
+  display: none;
+}
+
+.my-work {
+  padding: var(--hero-padding);
+}
+
+.my-work h1 {
+  margin-bottom: 5px;
+}
+
+.my-work .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.my-work .cards-container .card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 400px;
+}
+
+.my-work .cards-container .card .screenshot {
+  height: 250px;
+  animation: colorCycle 30s infinite alternate;
+  background-color: rgb(139, 4, 4);
+  display: flex;
+  font-size: 3rem;
+  text-align: center;
+  padding: 20px;
+  color: var(--color1);
+  justify-content: center;
+  align-items: center;
+}
+
+.my-work .cards-container .card .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+}
+
+.my-work .cards-container .card .card-content div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-work .cards-container .card .card-content div .icons {
+  gap: 20px;
+}
+
+footer {
+  gap: 4px;
+  padding: var(--hero-padding);
+  background-color: var(--color3);
+  color: var(--color1);
+  display: flex;
+}
+
+footer > div {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  flex: 1;
+}
+
+footer > div .contact {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: column;
+}
+footer > div .contact div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+footer img {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-height: 500px;
+  max-width: 800px;
+  object-fit: cover;
+  flex: 1.5;
+}
+
+footer .icons {
+  color: black;
+  display: flex;
+  gap: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --section-margin-bottom: 100px;
+  }
+
+  footer img {
+    transform-origin: top;
+    overflow: hidden;
+    max-width: none;
+  }
+
+  footer > div {
+    padding: var(--hero-padding);
+  }
+
+  footer {
+    padding: 0;
+    gap: 30px;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-wrapper hgroup .profile p {
+    width: 200px;
+    font-size: 2.5rem;
+    z-index: 2000;
+    position: absolute;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+      1px 1px 0 black;
+    top: 0;
+    left: 115%;
+    transform: translate(-50%, 10%);
+    color: var(--color1);
+    display: block;
+  }
+
+  .hero .hero-image {
+    display: none;
+  }
+
+  .hero-wrapper hgroup {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .hero-wrapper hgroup .profile {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+    scale: 1.2;
+    transform: translate(-40px, -40px);
+    float: left;
+  }
+
+  .hero-wrapper hgroup img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 648px) {
+  :root {
+    --h1-font-size: 2rem;
+
+    --hero-padding: 20px;
+    --hero-paragraph-font-size: 1rem;
+  }
+
+  .hero-wrapper hgroup .profile p {
+    transform: translate(-50%, 0%);
+    top: auto;
+    text-align: center;
+    left: 50%;
+    bottom: 0;
+  }
+
+  .hero-wrapper hgroup h1 {
+    text-align: center;
+  }
+
+  .hero-wrapper hgroup {
+    padding: 10px;
+    box-shadow: none;
+    background: none;
+    display: flex;
+  }
+
+  .hero-wrapper hgroup .profile {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    min-height: 600px;
+    max-height: none;
+    scale: 1;
+    transform: translate(0, 0);
+  }
+
+  .hero-wrapper hgroup img {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-wrapper hgroup .profile {
+    min-width: 250px;
+    max-width: 250px;
+  }
+  .hero-wrapper hgroup {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-wrapper hgroup .profile {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
+@keyframes colorCycle {
+  0% {
+    background-color: #9e1c1c;
+  }
+  50% {
+    background-color: #7c75ca;
+  }
+  75% {
+    background-color: #5e8f4d;
+  }
+  100% {
+    background-color: #d88f39;
+  }
+}
